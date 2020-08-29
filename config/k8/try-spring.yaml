@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: try-spring
-        image: gcr.io/chandan/spring-test:latest
+        image: gcr.io/chandan/try-spring:latest
         imagePullPolicy: Always
         resources:
           requests:
