@@ -29,11 +29,11 @@ spec:
             memory: 900Mi
         readinessProbe:
             httpGet:
-                path: /v1/health-test
-                port: 8000
+                path: /
+                port: 8080
                 scheme: HTTP
             initialDelaySeconds: 30
             timeoutSeconds: 5
         ports:
             - name: http
-              containerPort: 8000
+              containerPort: 8080
