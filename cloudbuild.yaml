@@ -46,17 +46,17 @@ images:
 options:
   substitutionOption: ALLOW_LOOSE
 substitutions:
-  _IMAGE_NAME: gcr.io/chandan/spring-test
+  _IMAGE_NAME: gcr.io/chandan/try-spring
   _DOCKERFILE_DIR: ''
   _DOCKERFILE_NAME: Dockerfile
-  _K8S_YAML_PATH: config/k8/web-deployment.yaml
+  _K8S_YAML_PATH: config/k8/try-spring.yaml
   _K8S_NAMESPACE: chandan
-  _K8S_ANNOTATIONS: gcb-trigger-id=837c6fa0-2b85-4a92-803b-cb68449a73d9
+  _K8S_ANNOTATIONS: 
   _OUTPUT_BUCKET_PATH: chandan_cloudbuild/deploy
-  _GKE_LOCATION: asia-south1-b
+  _GKE_LOCATION: us-central1-c
   _K8S_LABELS: 
-  _K8S_APP_NAME: web-farm
-  _GKE_CLUSTER: nebory
+  _K8S_APP_NAME: try-spring
+  _GKE_CLUSTER: chandan
 tags:
   - gcp-cloud-build-deploy
   - $_K8S_APP_NAME
