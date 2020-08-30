@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: try-spring
+  namespace: chandan
+  labels:
+    app: try-spring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: try-spring
+  template:
+    metadata:
+      labels:
+        app: try-spring
+    spec:
+      containers:
+      - name: try-spring
+        image: gcr.io/chandan/try-spring:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 300m
+            memory: 800Mi
+          limits:
+            cpu: 400m
+            memory: 900Mi
+        readinessProbe:
+            httpGet:
+                path: /v1/health-test
+                port: 8000
+                scheme: HTTP
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+        ports:
+            - name: http
+              containerPort: 8000
