@@ -46,7 +46,7 @@ images:
 options:
   substitutionOption: ALLOW_LOOSE
 substitutions:
-  _IMAGE_NAME: gcr.io/chandan/try-spring
+  _IMAGE_NAME: gcr.io/trail-275304/try-spring
   _DOCKERFILE_DIR: ''
   _DOCKERFILE_NAME: Dockerfile
   _K8S_YAML_PATH: config/k8/try-spring.yaml
