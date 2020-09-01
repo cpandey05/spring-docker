@@ -11,6 +11,9 @@ spec:
   selector:
     matchLabels:
       app: try-spring
+      env: testing
+      version: v1
+      partof: webserver
   template:
     metadata:
       labels:
@@ -31,9 +34,17 @@ spec:
             httpGet:
                 path: /
                 port: 8080
-                scheme: HTTP
             initialDelaySeconds: 30
             timeoutSeconds: 5
+        livenessProbe:
+            httpGet:
+                path: /
+                port: 8080
+                httpHeaders:
+                - name: Custom-Header
+                  value: Awesome
+            initialDelaySeconds: 30
+            periodSeconds: 5
         ports:
             - name: http
               containerPort: 8080
