@@ -5,7 +5,7 @@ metadata:
   name: try-spring
   namespace: chandan
   labels:
-      app: try-spring
+    app: try-spring
 spec:
   replicas: 1
   selector:
@@ -31,18 +31,9 @@ spec:
             httpGet:
                 path: /
                 port: 8080
+                scheme: HTTP
             initialDelaySeconds: 30
-            periodSeconds: 5
-            timeoutSeconds: 4
-            failureThreshold: 3
-        livenessProbe:
-            httpGet:
-                path: /
-                port: 8080
-            initialDelaySeconds: 30
-            periodSeconds: 5
-            timeoutSeconds: 4
-            failureThreshold: 3
+            timeoutSeconds: 5
         ports:
             - name: http
               containerPort: 8080
