@@ -7,7 +7,7 @@ metadata:
   labels:
       app: try-spring
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: try-spring
@@ -32,7 +32,7 @@ spec:
                 path: /
                 port: 8080
             initialDelaySeconds: 30
-            periodSeconds: 10
+            periodSeconds: 5
             timeoutSeconds: 4
             failureThreshold: 3
         livenessProbe:
@@ -40,7 +40,7 @@ spec:
                 path: /
                 port: 8080
             initialDelaySeconds: 30
-            periodSeconds: 10
+            periodSeconds: 5
             timeoutSeconds: 4
             failureThreshold: 3
         ports:
