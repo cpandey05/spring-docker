@@ -5,7 +5,10 @@ metadata:
   name: try-spring
   namespace: chandan
   labels:
-    app: try-spring
+      app: try-spring
+      env: testing
+      version: v1
+      partof: webserver
 spec:
   replicas: 1
   selector:
@@ -17,7 +20,6 @@ spec:
   template:
     metadata:
       labels:
-        app: try-spring
         app: try-spring
         env: testing
         version: v1
@@ -39,7 +41,9 @@ spec:
                 path: /
                 port: 8080
             initialDelaySeconds: 30
-            timeoutSeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 4
+            failureThreshold: 3
         livenessProbe:
             httpGet:
                 path: /
@@ -48,7 +52,9 @@ spec:
                 - name: Custom-Header
                   value: Awesome
             initialDelaySeconds: 30
-            periodSeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 4
+            failureThreshold: 3
         ports:
             - name: http
               containerPort: 8080
