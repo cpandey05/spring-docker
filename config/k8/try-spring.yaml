@@ -7,7 +7,7 @@ metadata:
   labels:
       app: try-spring
       env: testing
-      version: v1
+      version: 1.0
       partof: webserver
 spec:
   replicas: 1
@@ -15,14 +15,14 @@ spec:
     matchLabels:
       app: try-spring
       env: testing
-      version: v1
+      version: 1.0
       partof: webserver
   template:
     metadata:
       labels:
         app: try-spring
         env: testing
-        version: v1
+        version: 1.0
         partof: webserver
     spec:
       containers:
