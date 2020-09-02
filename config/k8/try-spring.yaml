@@ -18,6 +18,10 @@ spec:
     metadata:
       labels:
         app: try-spring
+        app: try-spring
+        env: testing
+        version: v1
+        partof: webserver
     spec:
       containers:
       - name: try-spring
