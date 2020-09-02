@@ -6,21 +6,15 @@ metadata:
   namespace: chandan
   labels:
       app: try-spring
-      env: testing
-      partof: webserver
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: try-spring
-      env: testing
-      partof: webserver
   template:
     metadata:
       labels:
         app: try-spring
-        env: testing
-        partof: webserver
     spec:
       containers:
       - name: try-spring
