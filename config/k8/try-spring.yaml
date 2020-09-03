@@ -5,7 +5,7 @@ metadata:
   name: try-spring
   namespace: chandan
   labels:
-    app: try-spring
+      app: try-spring
 spec:
   replicas: 1
   selector:
@@ -22,18 +22,27 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            cpu: 300m
+            cpu: 200m
             memory: 400Mi
           limits:
-            cpu: 300m
-            memory: 400Mi
+            cpu: 100m
+            memory: 300Mi
         readinessProbe:
             httpGet:
                 path: /
                 port: 8080
-                scheme: HTTP
             initialDelaySeconds: 30
-            timeoutSeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 4
+            failureThreshold: 3
+        livenessProbe:
+            httpGet:
+                path: /
+                port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 4
+            failureThreshold: 3
         ports:
             - name: http
               containerPort: 8080
