@@ -29,7 +29,7 @@ spec:
             memory: 400Mi
         readinessProbe:
             httpGet:
-                path: /
+                path: /404
                 port: 8080
             initialDelaySeconds: 30
             periodSeconds: 5
