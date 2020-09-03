@@ -12,12 +12,10 @@ spec:
   selector:
     matchLabels:
       app: try-spring
-      env: staging
   template:
     metadata:
       labels:
         app: try-spring
-        env: staging
     spec:
       containers:
       - name: try-spring
