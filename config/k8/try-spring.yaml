@@ -6,15 +6,18 @@ metadata:
   namespace: chandan
   labels:
       app: try-spring
+      env: staging
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: try-spring
+      env: staging
   template:
     metadata:
       labels:
         app: try-spring
+        env: staging
     spec:
       containers:
       - name: try-spring
@@ -29,7 +32,7 @@ spec:
             memory: 400Mi
         readinessProbe:
             httpGet:
-                path: /404
+                path: /
                 port: 8080
             initialDelaySeconds: 30
             periodSeconds: 5
