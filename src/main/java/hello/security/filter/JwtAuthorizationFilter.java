@@ -41,10 +41,11 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest req) {
         String token = req.getHeader(SecurityConstants.HEADER_STRING);
-        String secretKey=System.getenv().getOrDefault("SECRET_KEY", "SECRET_KEY");
+        String secretKey=System.getenv().getOrDefault("SECRET_KEY", "DEFAULT SECRET_KEY");
         System.out.println("Secret key -- "+secretKey);
+        //SecurityConstants.SECRET.getBytes()
         if (token != null) {
-            String user = JWT.require(Algorithm.HMAC512(secretKey)).build().verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
+            String user = JWT.require(Algorithm.HMAC512(secretKey.getBytes())).build().verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
                     .getSubject();
             if (user != null) {
                 return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
