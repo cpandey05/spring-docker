@@ -69,3 +69,8 @@ spec:
                 secretKeyRef:
                     name: try-secret
                     key: SECRET_KEY2
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                    name: try-secret
+                    key: SECRET_KEY
