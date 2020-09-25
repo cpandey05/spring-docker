@@ -33,7 +33,7 @@ spec:
             httpGet:
                 path: /try
                 port: 8080
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 5
             timeoutSeconds: 4
             failureThreshold: 3
@@ -41,7 +41,7 @@ spec:
             httpGet:
                 path: /try
                 port: 8080
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 5
             timeoutSeconds: 4
             failureThreshold: 3
