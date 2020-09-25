@@ -15,6 +15,10 @@ public class TestController {
     	String secretKey2=System.getenv().getOrDefault("SECRET_KEY2", "SECRET_KEY2 -- value not set");
         return new ResponseEntity<>("Hello Chandan Docker World :: config key 1 :"+configKey1+" config key 2 :"+ configKey2+" secret key 1 :"+ secretKey1+" secret key 2 :"+ secretKey2,HttpStatus.OK);
     }
+    @RequestMapping("/try")
+    public String test() {
+        return "Hello Chandan Docker World ::";
+    }
   
     @RequestMapping("/404")
     public ResponseEntity<String> notFound() {
